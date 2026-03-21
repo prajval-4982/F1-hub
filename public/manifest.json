@@ -1,0 +1,17 @@
+{
+  "name": "F1 Performance Hub",
+  "short_name": "F1 Hub",
+  "description": "Live 2026 F1 championship standings, interactive track maps, telemetry comparisons and race results.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06060e",
+  "theme_color": "#e10600",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

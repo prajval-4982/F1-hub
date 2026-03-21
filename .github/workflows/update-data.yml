@@ -1,0 +1,39 @@
+name: Update F1 data
+on:
+  schedule:
+    - cron: '0 */4 * * *'   # every 4 hours during race weekends
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest driver standings
+        run: |
+          curl -s "https://api.jolpi.ca/ergast/f1/2026/driverstandings/?limit=100" \
+            -o data/standings-drivers.json
+
+      - name: Fetch latest constructor standings
+        run: |
+          curl -s "https://api.jolpi.ca/ergast/f1/2026/constructorstandings/?limit=100" \
+            -o data/standings-constructors.json
+
+      - name: Fetch latest race results
+        run: |
+          curl -s "https://api.jolpi.ca/ergast/f1/2026/results/?limit=100" \
+            -o data/results.json
+
+      - name: Fetch schedule
+        run: |
+          curl -s "https://api.jolpi.ca/ergast/f1/2026/?limit=100" \
+            -o data/schedule.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "F1 Hub Bot"
+          git config user.email "bot@f1hub.app"
+          git add data/
+          git diff --cached --quiet || git commit -m "Auto-update: standings $(date +%Y-%m-%d)"
+          git push
