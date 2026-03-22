@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { getAllResults, getSchedule } from '@/lib/api';
