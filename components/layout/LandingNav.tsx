@@ -21,6 +21,7 @@ export default function LandingNav() {
       <div className="nav-links">
         <a href="#features">Features</a>
         <a href="#tracks">Tracks</a>
+        <Link href="/recap" style={{ color: 'var(--lp-teal)', fontWeight: 600 }}>Recap</Link>
         <a href="#standings">Standings</a>
         <a href="#data">Data</a>
       </div>

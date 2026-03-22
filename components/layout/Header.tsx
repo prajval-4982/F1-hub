@@ -10,6 +10,7 @@ import Image from 'next/image';
 const NAV_ITEMS = [
     { href: '/track', label: 'Track Analyzer' },
     { href: '/season', label: '2026 Season' },
+    { href: '/recap', label: 'Season Recap' },
     { href: '/compare', label: 'Car Comparison' },
 ];
 
